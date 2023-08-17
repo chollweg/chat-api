@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const checktoken = async (token, id, key) => jwt.verify(token, key, (err, decoded) => {
-    
+   console.log(decoded)
 })
 
 const setToken = async (id, key) => {
@@ -13,5 +13,6 @@ const setToken = async (id, key) => {
 }
 
 module.exports = {
-    setToken
+    setToken,
+    checktoken
 }

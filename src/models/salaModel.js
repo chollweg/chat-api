@@ -26,8 +26,13 @@
 // }
 
 const db = require('./db');
+
 async function listarSalas(){
     return await db.findAll("salas");
 }
 
-module.exports = {listarSalas}
+async function buscarSala(idSala){
+    return await db.findOne("salas", idSala)
+}
+
+module.exports = {listarSalas, buscarSala}

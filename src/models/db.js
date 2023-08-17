@@ -16,9 +16,17 @@ async function findAll(collection){
     return db.collection(collection).find().toArray();
 }
 
+async function findOne(collection, _id){
+    const db = await connect();
+    let obj = await db.collection(collection).find({id: _id}).toArray()
+    if(obj)
+        return obj[0]
+    return false;
+}
+
 async function insertOne(collection, object){
     const db = await connect();
     return db.collection(collection).insertOne(object)
 }
 
-module.exports = {findAll, insertOne}
+module.exports = {findAll, findOne, insertOne}
